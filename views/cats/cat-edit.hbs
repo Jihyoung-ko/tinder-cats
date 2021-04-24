@@ -1,0 +1,5 @@
+<form action="/cats/{{cat._id}}/edit" method="POST">
+    <label for="name">Insert name</label>
+    <input type="text" id="name" name="name" value={{cat.name}}>
+    <button type="submit">Change name</button>
+</form>

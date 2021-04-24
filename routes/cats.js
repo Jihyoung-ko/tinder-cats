@@ -65,4 +65,28 @@ router.post('/:id', (req, res, next) => {
     });
 });
 
+router.get('/:id/edit', (req,res, next) => {
+  const { id } = req.params;
+  Cat.findById(id)
+  .then(cat => {
+    console.log('name changed', cat);
+    res.render('cats/cat-edit', { cat });
+  })
+  .catch(error => {
+      next(error);
+  });
+});
+router.post('/:id/edit', (req, res, next) => {
+  const { id } = req.params;
+  const cat = req.body;
+  Cat.findByIdAndUpdate(id, cat, { new: true })
+    .then(cat => {
+      console.log('edit', cat);
+      res.redirect('/cats');
+    })
+    .catch(error => {
+      next(error);
+    }); 
+});
+
 module.exports = router;

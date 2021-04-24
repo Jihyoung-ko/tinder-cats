@@ -6,7 +6,8 @@
     <li>
       <a href="/cats/{{this._id}}"> 
         {{ this.name }}
-      </a>
+      </a><br>
+      <a href="/cats/{{this._id}}/edit">Edit</a>
       <form action="/cats/{{this._id}}" method="POST">
         <button type="submit" style="cursor: pointer;">delete</button>
       </form>
